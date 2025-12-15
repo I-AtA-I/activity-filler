@@ -30,13 +30,17 @@ echo '(crontab -l 2>/dev/null; echo "0 */6 * * * ~/Streakerkeeper/uploader.sh") 
 touch uploader.sh
 chmod +x uploader.sh
 
+
 randon=$(($RANDOM + $RANDOM * $RANDOM))
 
 echo "$randon" >> ~/streak/README.md
 
-cd $gitfolder/streak
+cd ~/streak
 
+echo "git add README.md" > '~/Streakerkeeper/uploader.sh'
+echo "git commit -m $randon" >> '~/Streakerkeeper/uploader.sh'
 echo 'git push README.md' >> '~/Streakerkeeper/uploader.sh'
 
 
+cd ~/Streakerkeeper
 ./crontab.sh
