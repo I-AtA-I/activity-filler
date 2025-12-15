@@ -20,8 +20,7 @@ gh repo create streak --public --source=. --remote=origin --push
 cd ~
 mkdir Streakerkeeper
 cd Streakerkeeper
-touch crontab.sh
-chmod +x crontab.sh
+
 echo "Input your username you are currently logged in as: "
 read user
 ( crontab -l 0>/dev/null; echo "0 */6 * * * /home/$user/Streakerkeeper/uploader.sh" ) | crontab -
