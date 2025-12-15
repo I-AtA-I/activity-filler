@@ -22,7 +22,6 @@ mkdir Streakerkeeper
 cd Streakerkeeper
 touch crontab.sh
 chmod +x crontab.sh
-
 echo "Input your username you are currently logged in as: "
 read user
 ( crontab -l 0>/dev/null; echo "0 */6 * * * /home/$user/Streakerkeeper/uploader.sh" ) | crontab -
@@ -43,8 +42,9 @@ cd ~/streak
 echo "$randon" > "/home/$user/streak/README.md"
 
 
-echo "randon=$(($RANDOM + $RANDOM * $RANDOM))" > "/home/$user/Streakerkeeper/uploader.sh"
-echo "echo $randon" >> "/home/$user/Streakerkeeper/uploader.sh"
+echo 'randon=$(($RANDOM + $RANDOM * $RANDOM))' > "/home/$user/Streakerkeeper/uploader.sh"
+cd "/home/$user/Streakerkeeper"
+echo 'echo $randon >> uploader.sh'
 
 echo "git add README.md" >> "/home/$user/Streakerkeeper/uploader.sh"
 echo "git commit -m $randon" >> "/home/$user/Streakerkeeper/uploader.sh"
