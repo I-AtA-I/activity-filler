@@ -2,18 +2,19 @@
 
 #Script to set up a git repository to track streaks and automate commits every 6 hours
 
-#Prompting user for their .git folder location
-echo "Input your .git folder (example: ~/Downloads/.git ): "
-read gitfolder
-
 #creating a 'streak' repository
-cd $gitfolder
+cd ~
 mkdir streak
 cd streak
 touch README.md
 
 #initializing git repository
 git init
+echo "xxx" > README.md
+git add README.md
+git commit -m "xxx"
+gh repo create streak --public --source=. --remote=origin --push
+
 
 #creating necessary files and setting up cron job
 cd ~
@@ -29,9 +30,9 @@ echo '(crontab -l 2>/dev/null; echo "0 */6 * * * ~/Streakerkeeper/uploader.sh") 
 touch uploader.sh
 chmod +x uploader.sh
 
-random=$(($RANDOM + $RANDOM * $RANDOM))
+randon=$(($RANDOM + $RANDOM * $RANDOM))
 
-echo "$random" >> $gitfolder/streak/README.md
+echo "$randon" >> ~/streak/README.md
 
 cd $gitfolder/streak
 
