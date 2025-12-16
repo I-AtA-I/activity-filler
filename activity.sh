@@ -43,9 +43,8 @@ echo "$randon" > "/home/$user/streak/README.md"
 
 echo 'randon=$(($RANDOM + $RANDOM * $RANDOM))' > "/home/$user/Streakerkeeper/uploader.sh"
 cd "/home/$user/Streakerkeeper"
-echo "cd /home/$user/streak" >> "uploader.sh"
+echo "cd /home/$user/streak" >> "/home/$user/Streakerkeeper/uploader.sh"
 echo 'echo $randon >> README.md' >> "uploader.sh"
-
 
 echo "git add README.md" >> "/home/$user/Streakerkeeper/uploader.sh"
 echo "git commit -m $randon" >> "/home/$user/Streakerkeeper/uploader.sh"
@@ -54,3 +53,5 @@ echo 'git push' >> "/home/$user/Streakerkeeper/uploader.sh"
 
 cd ~/Streakerkeeper
 ./crontab.sh
+cd /home/$user/Streakerkeeper
+./uploader
