@@ -50,7 +50,7 @@ echo 'echo $randon >> README.md' >> "uploader.sh"
 
 echo "git add README.md" >> "/home/$user/Streakerkeeper/uploader.sh"
 echo "git commit -m $randon" >> "/home/$user/Streakerkeeper/uploader.sh"
-echo 'git push origin' >> "/home/$user/Streakerkeeper/uploader.sh"
+echo 'git push origin main' >> "/home/$user/Streakerkeeper/uploader.sh"
 
 git remote add origin $URL
 git push --set-upstream origin main
