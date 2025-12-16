@@ -6,6 +6,7 @@
 cd ~
 mkdir streak
 cd streak
+git remote add origin https://github.com/I-AtA-I/streak.git
 touch README.md
 
 #initializing git repository
@@ -20,6 +21,8 @@ gh repo create streak --public --source=. --remote=origin --push
 cd ~
 mkdir Streakerkeeper
 cd Streakerkeeper
+git remote add origin https://github.com/I-AtA-I/streak.git
+git push --set-upstream origin main
 
 echo "Input your username you are currently logged in as: "
 read user
