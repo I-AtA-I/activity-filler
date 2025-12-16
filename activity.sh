@@ -52,4 +52,4 @@ echo 'git push' >> "/home/$user/Streakerkeeper/uploader.sh"
 
 
 cd ~/Streakerkeeper
-./uploader
+bash uploader.sh
