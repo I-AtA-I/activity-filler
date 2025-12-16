@@ -2,16 +2,20 @@
 
 echo "Input your username you are currently logged in as: "
 read user
-echo "Input the 'streak' URL from your profile: "
-read URL
+
 
 # set up streak repo
 cd ~
 mkdir -p streak
 cd streak
 git init
+gh repo create streak
+echo "Input the 'streak' URL from your profile: "
+read URL
 git remote add origin $URL
 git pull origin main --rebase || true
+
+
 
 echo "xxx" > README.md
 git add README.md
