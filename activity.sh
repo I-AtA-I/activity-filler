@@ -1,12 +1,16 @@
 #!/bin/bash
 
 #Script to set up a git repository to track streaks and automate commits every 6 hours
+echo "Input your username you are currently logged in as: "
+read user
+echo "Input the 'streak' URL from your profile: "
+read URL
 
 #creating a 'streak' repository
 cd ~
 mkdir streak
 cd streak
-git remote add origin https://github.com/I-AtA-I/streak.git
+git remote add origin $URL
 touch README.md
 
 #initializing git repository
@@ -24,10 +28,7 @@ cd Streakerkeeper
 git remote add origin https://github.com/I-AtA-I/streak.git
 git push --set-upstream origin main
 
-echo "Input your username you are currently logged in as: "
-read user
-echo "Input the 'streak' URL from your profile: "
-read URL
+
 ( crontab -l 0>/dev/null; echo "0 */6 * * * /home/$user/Streakerkeeper/uploader.sh" ) | crontab -
 
 
@@ -41,6 +42,7 @@ randon=$(($RANDOM + $RANDOM * $RANDOM))
 echo "$randon" >> ~/streak/README.md
 
 cd ~/streak
+git remote add origin $URL
 
 
 echo "$randon" > "/home/$user/streak/README.md"
@@ -55,7 +57,6 @@ echo "git add README.md" >> "/home/$user/Streakerkeeper/uploader.sh"
 echo "git commit -m $randon" >> "/home/$user/Streakerkeeper/uploader.sh"
 echo 'git push origin main' >> "/home/$user/Streakerkeeper/uploader.sh"
 
-git remote add origin $URL
 git push --set-upstream origin main
 git push origin
 
